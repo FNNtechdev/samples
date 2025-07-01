@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+header {
+    background-color: #2d6a4f;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #40916c;
+    padding: 10px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+footer {
+    background-color: #2d6a4f;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+.container {
+    padding: 20px;
+}
+.hero {
+    background: url('https://via.placeholder.com/1200*400')no-repeat center center/cover;
+    height: 400px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 3em;
+    margin: 0;
+}
+.hero p{
+    font-size: 1,2em;
+    margin-top: 10px;
+}
+.features {
+display: flex;
+justify-content: space-around;
+text-align: center;
+margin: 20px 0;
+}
+.features div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
