@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-white text-gray-800 font-sans">
+
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between p-6 shadow">
+      <h1 class="text-2xl font-bold">MyLanding</h1>
+      <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="flex flex-col items-center justify-center text-center py-24 px-6 bg-gray-100">
+      <h2 class="text-4xl sm:text-5xl font-extrabold mb-6">Welcome to My Landing Page</h2>
+      <p class="text-lg sm:text-xl text-gray-700 mb-8 max-w-2xl">A simple and clean landing page built with HTML and Tailwind CSS. Great for portfolios, startups, or anything you want to show off.</p>
+      <a href="#learn-more" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition">Get Started</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="learn-more" class="py-20 px-6 max-w-4xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-6">Why Choose Us?</h3>
+      <p class="text-gray-600 mb-4">This landing page is lightweight, responsive, and easy to customize. Use it as a starting point for your next web project or showcase it as part of your GitHub portfolio.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white py-6 text-center">
+      <p>&copy; 2025 MyLanding. Built by Engineer Faith Njoroge</p>
+    </footer>
+
+  </body>
+</html>
