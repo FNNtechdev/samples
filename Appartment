@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Evaden Apartments</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .bg-hero {
+      background-image: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="text-gray-100">
+
+  <!-- Navbar -->
+  <header class="bg-black bg-opacity-60 fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-white">Evaden Apartments</h1>
+      <nav class="space-x-6">
+        <a href="#" class="hover:text-yellow-400 font-medium">Home</a>
+        <a href="#" class="hover:text-yellow-400 font-medium">Pay Rent</a>
+        <a href="#" class="hover:text-yellow-400 font-medium">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-hero h-screen flex items-center justify-center relative">
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="relative z-10 text-center px-6">
+      <h2 class="text-5xl font-extrabold mb-6 text-yellow-300">Welcome to Evaden Apartments</h2>
+      <p class="text-xl mb-8 text-gray-200">Modern Living. Easy Rent Payments. 100% Secure.</p>
+      <a href="#" class="bg-yellow-400 text-black px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-yellow-300 transition duration-300">
+        Pay Rent Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black bg-opacity-80 text-center py-4 text-sm text-gray-400">
+    &copy; 2025 Evaden Apartments. All rights reserved.
+  </footer>
+
+</body>
+</html>
