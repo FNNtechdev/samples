@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mental Health: Why Talking About It Matters | HealthSpot</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f6ff;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 3rem auto;
+      padding: 2.5rem;
+      background-color: #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+    }
+
+    h1 {
+      color: #4169E1; /* Royal Blue */
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 1s ease;
+      text-align: center;
+    }
+
+    h1.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .meta {
+      font-size: 0.95rem;
+      color: #777;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      color: #4169E1;
+      margin-top: 2rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+      font-size: 1.05rem;
+    }
+
+    .quote {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #333;
+      background-color: #e8f0fe;
+      padding: 1rem 1.5rem;
+      border-left: 5px solid #4169E1;
+      margin: 2rem 0;
+      min-height: 60px;
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="blog-title">Mental Health: Why Talking About It Matters</h1>
+    <p class="meta">By Dr Faith Njoroge • July 13, 2025</p>
+
+    <div class="quote" id="typing-quote"></div>
+
+    <p>Mental health is just as important as physical health, yet for many years, it has been ignored, misunderstood, or even stigmatized. In today's fast-paced world, more people than ever are experiencing anxiety, depression, and emotional burnout — and often, they suffer in silence.</p>
+
+    <h2>Why It’s Okay to Talk</h2>
+    <p>Talking about mental health helps break the stigma. When we open up, we not only help ourselves heal, but also give others the courage to speak out. Conversations create safe spaces, and in those spaces, healing begins.</p>
+
+    <h2>How to Start the Conversation</h2>
+    <p>You don’t need to be a professional therapist to make a difference. A simple "How are you really doing?" can go a long way. Listening without judgment, offering support, and just being present are powerful steps.</p>
+
+    <h2>Seeking Help is Strength, Not Weakness</h2>
+    <p>There’s no shame in seeking therapy or taking medication. Just as you would see a doctor for a broken bone, your mind deserves the same level of care and attention.</p>
+
+    <h2>Final Thoughts</h2>
+    <p>Let’s make it normal to talk about mental health — not as a taboo, but as a vital part of our well-being. You never know whose life you might change just by starting the conversation.</p>
+
+    <footer>
+      &copy; 2025 HealthSpot Blog. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // Animate title on load
+    window.addEventListener("DOMContentLoaded", () => {
+      const title = document.getElementById("blog-title");
+      title.classList.add("animate");
+
+      // Typing animation for quote
+      const quoteEl = document.getElementById("typing-quote");
+      const quote = "“It’s okay not to be okay — but it’s not okay to stay that way.”";
+      let index = 0;
+
+      function typeCharacter() {
+        if (index < quote.length) {
+          quoteEl.innerHTML += quote.charAt(index);
+          index++;
+          setTimeout(typeCharacter, 50); // Typing speed
+        }
+      }
+
+      setTimeout(typeCharacter, 600); // Delay before starting typing
+    });
+  </script>
+</body>
+</html>
