@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 Calendar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .year-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .calendar {
+      background: #fff;
+      padding: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    .calendar h2 {
+      text-align: center;
+      margin: 0 0 10px 0;
+      font-size: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    th {
+      background: #1e90ff;
+      color: #fff;
+      padding: 5px;
+    }
+
+    td {
+      text-align: center;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calendar - 2026</h1>
+  <div class="year-container" id="yearContainer"></div>
+
+  <script>
+    const year = 2026;
+    const container = document.getElementById("yearContainer");
+
+    function generateCalendar(month) {
+      const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      const firstDay = new Date(year, month, 1).getDay();
+      const lastDate = new Date(year, month + 1, 0).getDate();
+
+      let table = `<div class='calendar'>
+          <h2>${monthNames[month]}</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+            <tbody>`;
+
+      let day = 1;
+      for (let row = 0; row < 6; row++) {
+        table += "<tr>";
+        for (let col = 0; col < 7; col++) {
+          if (row === 0 && col < firstDay) {
+            table += "<td></td>";
+          } else if (day > lastDate) {
+            table += "<td></td>";
+          } else {
+            table += `<td>${day}</td>`;
+            day++;
+          }
+        }
+        table += "</tr>";
+        if (day > lastDate) break;
+      }
+
+      table += "</tbody></table></div>";
+      return table;
+    }
+
+    for (let month = 0; month < 12; month++) {
+      container.innerHTML += generateCalendar(month);
+    }
+  </script>
+</body>
+</html>
