@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSA Appreciation Card — Animated Premium Edition (Fixed)</title>
+  <style>
+    :root{
+      --gold:#d4a84e;
+      --gold-light:#faefd7;
+      --blue:#1f2a80;
+      --rose:#ffb7c5;
+      --sky:#a7d8ff;
+      --lav:#c7b8ff;
+      --text:#1a1a1a;
+      --card-width:780px;
+      --card-height:auto;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:'Segoe UI',Roboto,system-ui;
+      background:linear-gradient(135deg,#fff6f6,#f7faff,#fff9f0);
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px 10px;
+      overflow:auto;
+    }
+
+    .sparkle{
+      position:absolute;
+      width:12px;height:12px;
+      background:radial-gradient(circle,var(--gold) 0%,transparent 70%);
+      border-radius:50%;
+      animation:flicker 4s infinite ease-in-out;
+      opacity:0.7;
+    }
+    @keyframes flicker{
+      0%,100%{transform:scale(1);opacity:0.5;}
+      50%{transform:scale(1.8);opacity:1;}
+    }
+
+    .wrapper{
+      width:100%;
+      max-width:var(--card-width);
+      perspective:1400px;
+      position:relative;
+      z-index:10;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding-bottom:40px;
+    }
+
+    .card-container{
+      position:relative;
+      width:90%;
+      max-width:var(--card-width);
+      height:auto;
+      min-height:520px;
+      padding-bottom:40px;
+      transform-style:preserve-3d;
+      transition:transform 1.3s ease;
+      transform-origin:center center;
+    }
+    .wrapper:hover .card-container{
+      transform:rotateY(-180deg);
+    }
+
+    .card-side{
+      width:100%;
+      height:auto;
+      position:absolute;top:0;left:0;
+      border-radius:26px;
+      overflow:visible;
+      backface-visibility:hidden;
+      box-shadow:0 15px 45px rgba(0,0,0,0.18);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .front{
+      background:linear-gradient(135deg,var(--rose),var(--sky),var(--lav));
+      padding:70px 20px;
+      text-align:center;
+      animation:fadeIn 1s ease;
+      border:3px solid var(--gold);
+    }
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+    .gold-ring{
+      width:170px;height:170px;border-radius:50%;
+      margin:0 auto 22px auto;
+      border:7px solid var(--gold);
+      position:relative;
+      animation:ringGlow 3s infinite ease-in-out;
+      display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;
+    }
+    @keyframes ringGlow{
+      0%,100%{box-shadow:0 0 15px rgba(212,168,78,0.4);} 
+      50%{box-shadow:0 0 40px rgba(212,168,78,0.6);} 
+    }
+    .gold-ring::after{
+      content:"✦";font-size:48px;color:var(--gold);
+      animation:pulseStar 2s infinite ease-in-out;
+    }
+    @keyframes pulseStar{0%,100%{transform:scale(1);}50%{transform:scale(1.4);} }
+
+    .front .title{
+      font-size:36px;font-weight:700;color:var(--blue);
+      letter-spacing:1px;margin-bottom:8px;
+    }
+    .front .subtitle{
+      font-size:18px;color:#222;
+      opacity:0.95;
+      margin-bottom:18px;
+      font-weight:600;
+    }
+
+    .back{
+      transform:rotateY(180deg);
+      background:#ffffff;
+      padding:36px 40px;
+      border-left:7px solid var(--gold);
+      background-image:radial-gradient(circle at top left,var(--gold-light),transparent 65%);
+      align-items:stretch;
+    }
+
+    h2{
+      text-align:center;
+      font-size:30px;color:var(--blue);
+      margin:6px 0 8px 0;
+    }
+    p{
+      font-size:18px;line-height:1.7;color:var(--text);
+      margin-top:12px;
+    }
+
+    .farewell{
+      margin-top:22px;
+      padding:18px;
+      background:var(--gold-light);
+      border-left:5px solid var(--gold);
+      border-radius:16px;
+      font-size:17px;font-weight:600;
+      color:var(--blue);
+      animation:fadeIn 1.4s ease;
+    }
+
+    .signature{
+      margin-top:20px;text-align:right;
+      font-weight:600;color:#555;font-size:17px;
+    }
+
+    @media (max-width:520px){
+      .front .title{font-size:26px}
+      .gold-ring{width:130px;height:130px}
+      .wrapper{padding:20px}
+      .card-container{width:95%}
+      .back{padding:22px}
+    }
+  </style>
+</head>
+<body>
+
+<div class="sparkle" style="top:8%;left:12%;animation-delay:0.2s"></div>
+<div class="sparkle" style="top:22%;left:78%;animation-delay:1s"></div>
+<div class="sparkle" style="top:68%;left:28%;animation-delay:0.6s"></div>
+<div class="sparkle" style="top:84%;left:72%;animation-delay:1.4s"></div>
+
+<div class="wrapper">
+  <div class="card-container" aria-hidden="false">
+
+    <div class="card-side front" role="button" aria-label="Front of card">
+      <div class="gold-ring" aria-hidden="true"></div>
+      <div class="title">With Deep Gratitude</div>
+      <div class="subtitle">Catholic Students Association — CSA</div>
+    </div>
+
+    <div class="card-side back" role="region" aria-label="Message">
+      <h2>Thank You</h2>
+
+      <p>
+        I would love to express my heartfelt appreciation to the
+        <strong id="deptName">Liturgy Department</strong>, especially
+        <strong id="name1">Vincent Mutuku</strong> and
+        <strong id="name2">Sam Mulwa</strong>.
+      </p>
+
+      <p>
+        Throughout this semester, you have been a pillar of consistency and support.
+        From consultations, timely sharing of Sunday readings, making corrections,
+        to the weekly pamphlet designs — your dedication has been a true blessing.
+      </p>
+
+      <div class="farewell" id="farewellBox">
+        As our term of service comes to an end, I pray that God guides you in every
+        step you take. May your lives be filled with grace, growth, and unending favor.
+        I sincerely hope that our paths will cross again and that we will have another
+        opportunity to serve together in the future.
+      </div>
+
+      <div class="signature">With gratitude,<br>Faith Paul<br>Assistant Pamphlet Manager</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function updateCard(dept, n1, n2, farewell){
+    if(dept) document.getElementById('deptName').textContent = dept;
+    if(n1) document.getElementById('name1').textContent = n1;
+    if(n2) document.getElementById('name2').textContent = n2;
+    if(farewell) document.getElementById('farewellBox').textContent = farewell;
+  }
+
+  updateCard("Liturgy Department","Vincent Mut
