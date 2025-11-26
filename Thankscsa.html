@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSA Office Appreciation Card</title>
+  <style>
+    :root{
+      --gold:#d4a84e;
+      --soft-gold:#fff6e0;
+      --royal:#1b237a;
+      --rose:#ffd6e9;
+      --sky:#cbe7ff;
+      --lav:#e3dbff;
+      --text:#1a1a1a;
+      --card-width:780px;
+      --card-height:520px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      background:linear-gradient(135deg,#fff8f8,#f4f8ff,#fff9ef);
+      font-family:'Segoe UI',Sans-Serif;
+      min-height:100vh;
+      display:flex;justify-content:center;align-items:center;
+      padding:40px 10px;
+    }
+
+    /* Floating sparkles */
+    .sparkle{
+      position:absolute;
+      width:12px;height:12px;
+      background:radial-gradient(circle,var(--gold),transparent 70%);
+      border-radius:50%;opacity:.6;
+      animation:flicker 4s infinite ease-in-out;
+    }
+    @keyframes flicker{0%,100%{transform:scale(1);}50%{transform:scale(1.7);opacity:1;}}
+
+    .wrapper{
+      width:100%;max-width:var(--card-width);
+      height:var(--card-height);
+      perspective:1500px;
+      position:relative;
+    }
+    .card-container{
+      width:100%;height:100%;
+      transform-style:preserve-3d;
+      transition:transform 1.3s ease;
+      position:relative;
+    }
+    .wrapper:hover .card-container{transform:rotateY(-180deg);}    
+
+    .card-side{
+      width:100%;height:100%;position:absolute;top:0;left:0;
+      border-radius:26px;overflow:hidden;
+      backface-visibility:hidden;
+      box-shadow:0 15px 45px rgba(0,0,0,0.18);
+      display:flex;flex-direction:column;align-items:center;
+    }
+
+    /* FRONT */
+    .front{
+      background:linear-gradient(135deg,var(--rose),var(--sky),var(--lav));
+      border:3px solid var(--gold);
+      padding:70px 20px;text-align:center;
+      animation:fadeIn 1s ease;
+    }
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+    /* Shimmer crest circle */
+    .crest{
+      width:170px;height:170px;border-radius:50%;
+      border:7px solid var(--gold);
+      margin-bottom:22px;
+      display:flex;align-items:center;justify-content:center;
+      animation:ringGlow 3s infinite ease-in-out;
+    }
+    @keyframes ringGlow{0%,100%{box-shadow:0 0 18px rgba(212,168,78,.45);}50%{box-shadow:0 0 44px rgba(212,168,78,.7);}}
+
+    .crest::after{
+      content:"✸";font-size:54px;color:var(--gold);
+      animation:pulse 2.5s infinite ease-in-out;
+    }
+    @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.4);}}
+
+    .front .title{
+      font-size:36px;font-weight:700;color:var(--royal);margin-bottom:10px;
+    }
+    .front .subtitle{
+      font-size:18px;font-weight:600;color:#222;opacity:.9;
+    }
+
+    /* BACK */
+    .back{
+      transform:rotateY(180deg);
+      background:white;
+      padding:38px 44px;
+      border-left:7px solid var(--gold);
+      background-image:radial-gradient(circle at top left,var(--soft-gold),transparent 65%);
+      align-items:flex-start;
+    }
+
+    h2{
+      width:100%;text-align:center;
+      font-size:32px;color:var(--royal);
+      margin-bottom:12px;
+    }
+    p{
+      font-size:18px;line-height:1.65;color:var(--text);
+      margin-top:14px;
+    }
+
+    .heartbox{
+      margin-top:22px;padding:18px;
+      background:var(--soft-gold);
+      border-left:5px solid var(--gold);
+      border-radius:14px;font-weight:600;
+      font-size:17px;color:var(--royal);
+      animation:fadeIn 1.2s ease;
+    }
+
+    .signature{
+      width:100%;text-align:right;margin-top:24px;
+      font-weight:600;color:#555;font-size:17px;
+    }
+
+    @media(max-width:520px){
+      :root{--card-height:600px;}
+      .front .title{font-size:28px;}
+      .crest{width:130px;height:130px;}
+      .back{padding:24px;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sparkles -->
+<div class="sparkle" style="top:10%;left:10%;animation-delay:.3s"></div>
+<div class="sparkle" style="top:25%;left:80%;animation-delay:1s"></div>
+<div class="sparkle" style="top:70%;left:20%;animation-delay:.6s"></div>
+<div class="sparkle" style="top:85%;left:75%;animation-delay:1.3s"></div>
+
+<div class="wrapper">
+  <div class="card-container">
+
+    <!-- FRONT -->
+    <div class="card-side front">
+      <div class="crest"></div>
+      <div class="title">With Sincere Gratitude</div>
+      <div class="subtitle">Catholic Students Association — CSA Office</div>
+    </div>
+
+    <!-- BACK -->
+    <div class="card-side back">
+      <h2>Thank You</h2>
+
+      <p>
+        To our dedicated and remarkable <strong>CSA Office</strong>,
+        I extend my deepest appreciation for your steady leadership,
+        your unity, and the spirit of cooperation that has guided every
+        step of our service this term.
+      </p>
+
+      <p>
+        Your openness, coordination, and readiness to support every
+        department — including ours — have made this journey not only
+        smooth but truly grace-filled. You have led with dignity,
+        patience, and a heart grounded in service.
+      </p>
+
+      <div class="heartbox">
+        As we come near the end of our term, may God bless each of you
+        abundantly. May He reward your commitment, strengthen your paths,
+        and open even greater doors for you. It is my sincere hope that we
+        will have many more opportunities to serve together in future.
+      </div>
+
+      <div class="signature">
+        With respect and gratitude,<br>
+        Head of Liturgy Department
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  // Touch-device tap flip
+  document.querySelector('.card-container').addEventListener('click', function(){
+    this.style.transform = this.style.transform ? '' : 'rotateY(-180deg)';
+  });
+</script>
+
+</body>
+</html>
