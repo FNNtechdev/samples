@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Have A Confession...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@700&family=JetBrains+Mono:wght@400;700&family=Crimson+Pro:ital@0;1&family=Bebas+Neue&family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --romantic-primary: #e63946;
+            --romantic-secondary: #f4a5ae;
+            --romantic-bg: #fff0f3;
+            --romantic-text: #2b2d42;
+            --nerd-primary: #00d9ff;
+            --nerd-secondary: #7c3aed;
+            --nerd-accent: #10b981;
+            --nerd-bg: #0f172a;
+            --nerd-text: #e2e8f0;
+            --nerd-yellow: #ffd32a;
+        }
+
+        .dark {
+            --romantic-bg: #1a1a2e;
+            --romantic-text: #ffeef1;
+            --romantic-secondary: #a83240;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Romantic Phase */
+        .romantic-phase {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--romantic-bg) 0%, #ffd6e0 50%, var(--romantic-bg) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark .romantic-phase {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d1f3d 50%, #1a1a2e 100%);
+        }
+
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: floatUp 6s ease-in infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-20vh) rotate(360deg) scale(1.2); opacity: 0; }
+        }
+
+        .romantic-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 650px;
+        }
+
+        .intro-text {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            color: var(--romantic-text);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            line-height: 1.8;
+            visibility: hidden;
+        }
+
+        .intro-text.visible {
+            visibility: visible;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .dramatic-pause {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: var(--romantic-primary);
+            font-style: italic;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .dramatic-pause.visible {
+            visibility: visible;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .typing-indicator {
+            display: inline-flex;
+            gap: 4px;
+            padding: 0.5rem 1rem;
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 20px;
+            margin: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .typing-indicator.visible {
+            visibility: visible;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: var(--romantic-primary);
+            border-radius: 50%;
+            animation: bounce 1.4s ease-in-out infinite;
+        }
+
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+        .confession-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 8vw, 4rem);
+            color: var(--romantic-primary);
+            margin: 2rem 0;
+            opacity: 0;
+            visibility: hidden;
+            text-shadow: 2px 2px 10px rgba(230, 57, 70, 0.3);
+        }
+
+        .confession-text.visible {
+            visibility: visible;
+            animation: heartBeat 1s ease forwards;
+        }
+
+        @keyframes heartBeat {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .reveal-btn {
+            margin-top: 2rem;
+            padding: 1.2rem 3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--romantic-primary), #ff6b6b);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(230, 57, 70, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reveal-btn.visible {
+            visibility: visible;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .reveal-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(230, 57, 70, 0.5);
+        }
+
+        .heart-icon {
+            display: inline-block;
+            animation: pulse 1s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Loading Phase */
+        .loading-phase {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--romantic-bg) 0%, #ffd6e0 100%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .dark .loading-phase {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d1f3d 100%);
+        }
+
+        .loading-phase.active { display: flex; }
+
+        .loading-heart {
+            font-size: 5rem;
+            animation: loadingPulse 0.5s ease infinite;
+        }
+
+        @keyframes loadingPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        .loading-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--romantic-primary);
+            margin-top: 1.5rem;
+        }
+
+        .loading-bar-container {
+            width: 300px;
+            height: 10px;
+            background: rgba(230, 57, 70, 0.2);
+            border-radius: 10px;
+            margin-top: 2rem;
+            overflow: hidden;
+        }
+
+        .loading-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--romantic-primary), #ff6b6b);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .loading-status {
+            font-size: 1.1rem;
+            color: var(--romantic-text);
+            margin-top: 1rem;
+            font-style: italic;
+            min-height: 1.5rem;
+        }
+
+        /* Reveal Phase */
+        .reveal-phase {
+            min-height: 100vh;
+            background: var(--nerd-bg);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reveal-phase.active {
+            display: flex;
+            animation: glitchIn 0.8s ease;
+        }
+
+        @keyframes glitchIn {
+            0% { opacity: 0; filter: hue-rotate(90deg) blur(10px); }
+            30% { filter: hue-rotate(-90deg) blur(5px); }
+            60% { filter: hue-rotate(45deg) blur(2px); }
+            100% { opacity: 1; filter: hue-rotate(0deg) blur(0); }
+        }
+
+        .code-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.12;
+        }
+
+        .code-column {
+            position: absolute;
+            top: -100%;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--nerd-primary);
+            writing-mode: vertical-rl;
+            animation: codeRain 8s linear infinite;
+        }
+
+        @keyframes codeRain {
+            0% { transform: translateY(-100%); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        .reveal-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .gotcha-text {
+            font-family: 'Bangers', cursive;
+            font-size: clamp(4rem, 18vw, 10rem);
+            color: var(--nerd-yellow);
+            text-shadow: 4px 4px 0 #ff4757, 8px 8px 0 var(--nerd-primary), 12px 12px 0 rgba(0,0,0,0.3);
+            animation: gotcha 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            letter-spacing: 0.05em;
+            line-height: 1;
+        }
+
+        @keyframes gotcha {
+            0% { transform: scale(4) rotate(-15deg); opacity: 0; }
+            60% { transform: scale(0.9) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--nerd-accent);
+            margin: 1rem 0 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.3s;
+        }
+
+        .nerd-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--nerd-secondary), var(--nerd-primary));
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: white;
+            margin: 1rem 0;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.5s;
+        }
+
+        .true-love-title {
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--nerd-primary), var(--nerd-secondary), var(--nerd-accent));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1.5rem 0;
+            opacity: 0;
+            animation: gradientShift 3s ease infinite, fadeInUp 1s ease forwards 0.7s;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .love-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .love-item {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 340px;
+            opacity: 0;
+            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .love-item:hover::before { opacity: 1; }
+
+        .love-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.2);
+            border-color: var(--nerd-primary);
+        }
+
+        .love-item:nth-child(1) { animation-delay: 1s; }
+        .love-item:nth-child(2) { animation-delay: 1.3s; }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+            to { opacity: 1; transform: scale(1) rotate(0deg); }
+        }
+
+        .love-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .love-item h3 {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--nerd-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .love-item p {
+            font-family: 'Crimson Pro', serif;
+            color: var(--nerd-text);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .fun-facts {
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 1.6s;
+        }
+
+        .fun-facts h4 {
+            font-family: 'Bangers', cursive;
+            color: var(--nerd-yellow);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .fact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--nerd-text);
+        }
+
+        .fact-item:last-child { border-bottom: none; }
+
+        .fact-emoji {
+            font-size: 1.5rem;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .code-block {
+            background: rgba(0,0,0,0.4);
+            border-left: 4px solid var(--nerd-accent);
+            padding: 1.5rem;
+            margin: 2rem auto;
+            border-radius: 0 15px 15px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--nerd-text);
+            text-align: left;
+            max-width: 500px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 2s;
+            overflow-x: auto;
+        }
+
+        .code-block .keyword { color: var(--nerd-secondary); }
+        .code-block .string { color: var(--nerd-accent); }
+        .code-block .comment { color: #64748b; }
+        .code-block .function { color: var(--nerd-primary); }
+        .code-block .number { color: var(--nerd-yellow); }
+
+        .confession-box {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(0, 217, 255, 0.1));
+            border: 2px solid var(--nerd-secondary);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 550px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 2.4s;
+        }
+
+        .confession-box p {
+            font-family: 'Crimson Pro', serif;
+            color: var(--nerd-text);
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .confession-box .emoji-big {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--nerd-primary);
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 2.8s;
+        }
+
+        .signature span {
+            display: block;
+            font-size: 1rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .emoji-burst {
+            position: fixed;
+            font-size: 3rem;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        @keyframes burstOut {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(0) rotate(720deg); opacity: 0; }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 50;
+            animation: confettiFall 3s ease-out forwards;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        @media (max-width: 600px) {
+            .love-items { flex-direction: column; align-items: center; }
+            .love-item { width: 100%; }
+            .code-block { font-size: 0.75rem; padding: 1rem; }
+            .gotcha-text { text-shadow: 2px 2px 0 #ff4757, 4px 4px 0 var(--nerd-primary); }
+        }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+    <!-- Romantic Phase -->
+    <div class="romantic-phase" id="romanticPhase">
+        <div class="hearts-container" id="heartsContainer"></div>
+        <div class="romantic-content">
+            <p class="intro-text" id="text1">Hey bestie... can we talk? 💕</p>
+            <div class="typing-indicator" id="typing1"><span></span><span></span><span></span></div>
+            <p class="intro-text" id="text2">So... there's been something on my mind lately... 😳</p>
+            <div class="typing-indicator" id="typing2"><span></span><span></span><span></span></div>
+            <p class="intro-text" id="text3">Something I've been wanting to share with you...</p>
+            <p class="dramatic-pause" id="pause1">*dramatic music plays*</p>
+            <div class="typing-indicator" id="typing3"><span></span><span></span><span></span></div>
+            <p class="intro-text" id="text4">I've finally found TRUE LOVE! 🥹</p>
+            <p class="dramatic-pause" id="pause2">*wipes single tear*</p>
+            <h1 class="confession-text" id="confession">Let me introduce you... 💗</h1>
+            <button class="reveal-btn" id="revealBtn">
+                Meet the love of my life <span class="heart-icon">💝</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Loading Phase -->
+    <div class="loading-phase" id="loadingPhase">
+        <div class="loading-heart">💕</div>
+        <p class="loading-text">Preparing the big reveal...</p>
+        <div class="loading-bar-container">
+            <div class="loading-bar" id="loadingBar"></div>
+        </div>
+        <p class="loading-status" id="loadingStatus"></p>
+    </div>
+
+    <!-- Reveal Phase -->
+    <div class="reveal-phase" id="revealPhase">
+        <div class="code-rain" id="codeRain"></div>
+        <div class="reveal-content">
+            <h1 class="gotcha-text">GOTCHA! 🤪</h1>
+            <p class="subtitle">Plot twist you didn't see coming!</p>
+            <div class="nerd-badge">🤓 Certified Nerd Alert 🤓</div>
+
+            <h2 class="true-love-title">Meet My Soulmates:</h2>
+
+            <div class="love-items">
+                <div class="love-item">
+                    <span class="love-icon">💻</span>
+                    <h3>&lt;CODING/&gt;</h3>
+                    <p>
+                        Nothing hits like finally fixing that bug at 2 AM! The dopamine rush is UNMATCHED. Every semicolon is a love letter. Every function is poetry! ✨
+                    </p>
+                </div>
+                <div class="love-item">
+                    <span class="love-icon">📚</span>
+                    <h3>{ BOOKS }</h3>
+                    <p>
+                        Getting lost in a good book? That's my version of a hot date! Plot twists, character arcs, fictional worlds... who needs reality anyway? 📖✨
+                    </p>
+                </div>
+            </div>
+
+            <div class="fun-facts">
+                <h4>🎯 True Nerd Confessions:</h4>
+                <div class="fact-item">
+                    <span class="fact-emoji">⌨️</span>
+                    <span>I've said "just one more line of code" at midnight... at 4 AM</span>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-emoji">📖</span>
+                    <span>Started "one chapter before bed"... finished the whole book</span>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-emoji">🤓</span>
+                    <span>My browser has 47 tabs open. 32 are documentation</span>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-emoji">😴</span>
+                    <span>Sleep schedule? Never heard of her</span>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-emoji">🎉</span>
+                    <span>Weekend plans = new book + side project</span>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <span class="keyword">const</span> me = {<br>
+                &nbsp;&nbsp;passion: [<span class="string">"coding"</span>, <span class="string">"reading"</span>],<br>
+                &nbsp;&nbsp;coffeeConsumed: <span class="number">Infinity</span>,<br>
+                &nbsp;&nbsp;socialLife: <span class="keyword">null</span>, <span class="comment">// working on it lol</span><br>
+                &nbsp;&nbsp;regrets: <span class="number">0</span><br>
+                };<br><br>
+                <span class="comment">// This is who I am and I love it! 🚀</span>
+            </div>
+
+            <div class="confession-box">
+                <span class="emoji-big">🤭</span>
+                <p>
+                    Did I get you?! LOL! Just wanted to share what truly makes my heart happy - lines of code that actually work, and books that transport me to different worlds! Thanks for being a friend who gets my nerdy soul! 💜
+                </p>
+            </div>
+
+            <p class="signature">
+                Your favorite nerd 🤓💻📚
+                <span>// console.log("Thanks for being awesome!")</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            document.documentElement.classList[e.matches ? 'add' : 'remove']('dark');
+        });
+
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const hearts = ['💕', '💖', '💗', '💓', '💝', '❤️', '💘', '💞', '🥰', '😍'];
+            for (let i = 0; i < 25; i++) {
+                const heart = document.createElement('span');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 6 + 's';
+                heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                container.appendChild(heart);
+            }
+        }
+
+        // Romantic sequence
+        function runRomanticSequence() {
+            const sequence = [
+                { id: 'text1', delay: 500 },
+                { id: 'typing1', delay: 1500 },
+                { id: 'text2', delay: 3500, hideTyping: 'typing1' },
+                { id: 'typing2', delay: 5000 },
+                { id: 'text3', delay: 6500, hideTyping: 'typing2' },
+                { id: 'pause1', delay: 8000 },
+                { id: 'typing3', delay: 9000 },
+                { id: 'text4', delay: 10500, hideTyping: 'typing3' },
+                { id: 'pause2', delay: 12000 },
+                { id: 'confession', delay: 13500 },
+                { id: 'revealBtn', delay: 15000 }
+            ];
+            sequence.forEach(item => {
+                setTimeout(() => {
+                    const el = document.getElementById(item.id);
+                    if (el) el.classList.add('visible');
+                    if (item.hideTyping) {
+                        document.getElementById(item.hideTyping).classList.remove('visible');
+                    }
+                }, item.delay);
+            });
+        }
+
+        // Code rain
+        function createCodeRain() {
+            const container = document.getElementById('codeRain');
+            const snippets = [
+                'function()', 'const', 'let', 'return', 'import', 'async', 'await',
+                'class Nerd', '=>', '{}', '[]', 'true', 'false', 'console.log()',
+                'while(learning)', 'for(book in library)', 'if(happy)', 'export',
+                'npm install', 'git push', 'read()', 'code()', 'debug()', 'coffee++'
+            ];
+            for (let i = 0; i < 35; i++) {
+                const column = document.createElement('div');
+                column.className = 'code-column';
+                column.style.left = (i / 35 * 100) + '%';
+                column.style.animationDelay = Math.random() * 8 + 's';
+                column.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                let text = '';
+                for (let j = 0; j < 5; j++) {
+                    text += snippets[Math.floor(Math.random() * snippets.length)] + ' ';
+                }
+                column.textContent = text;
+                container.appendChild(column);
+            }
+        }
+
+        // Confetti
+        function createConfetti() {
+            const colors = ['#ff4757', '#ffd32a', '#00d9ff', '#7c3aed', '#10b981', '#ff6b6b'];
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-10px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.height = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 4000);
+                }, Math.random() * 1000);
+            }
+        }
+
+        // Emoji burst
+        function createEmojiBurst(x, y) {
+            const emojis = ['💻', '📚', '🎉', '😂', '🤓', '⌨️', '📖', '🔥', '✨', '🚀', '💜', '🤪'];
+            for (let i = 0; i < 15; i++) {
+                const emoji = document.createElement('span');
+                emoji.className = 'emoji-burst';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = x + 'px';
+                emoji.style.top = y + 'px';
+                const angle = (i / 15) * Math.PI * 2;
+                const distance = 100 + Math.random() * 150;
+                emoji.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+                emoji.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
+                emoji.style.animation = 'burstOut 1s ease forwards';
+                document.body.appendChild(emoji);
+                setTimeout(() => emoji.remove(), 1000);
+            }
+        }
+
+        // Loading sequence
+        function runLoadingSequence() {
+            const loadingBar = document.getElementById('loadingBar');
+            const loadingStatus = document.getElementById('loadingStatus');
+            const statuses = [
+                { percent: 15, text: "Gathering the tea... ☕" },
+                { percent: 30, text: "Adding dramatic effects... 🎭" },
+                { percent: 50, text: "Charging nerd power... 🔋" },
+                { percent: 70, text: "Almost ready... 🎬" },
+                { percent: 85, text: "3... 2... 1... 🚀" },
+                { percent: 100, text: "HERE WE GO! 🎉" }
+            ];
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < statuses.length) {
+                    loadingBar.style.width = statuses[i].percent + '%';
+                    loadingStatus.textContent = statuses[i].text;
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        document.getElementById('loadingPhase').classList.remove('active');
+                        document.getElementById('revealPhase').classList.add('active');
+                        createCodeRain();
+                        createConfetti();
+                    }, 600);
+                }
+            }, 350);
+        }
+
+        // Reveal button
+        document.getElementById('revealBtn').addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            createEmojiBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+            setTimeout(() => {
+                document.getElementById('romanticPhase').classList.add('hidden');
+                document.getElementById('loadingPhase').classList.add('active');
+                runLoadingSequence();
+            }, 300);
+        });
+
+        // Init
+        createHearts();
+        runRomanticSequence();
+    </script>
+</body>
+</html>
+
