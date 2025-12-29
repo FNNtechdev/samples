@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Faith Njoroge! 🎂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Fira+Code:wght@400;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #ffd700;
+            --gold-light: #fff4cc;
+            --rose: #ff6b9d;
+            --rose-deep: #e91e8c;
+            --purple: #8b5cf6;
+            --purple-deep: #6d28d9;
+            --cyan: #22d3ee;
+            --cyan-glow: #06b6d4;
+            --dark: #0a0a1a;
+            --darker: #050510;
+            --code-green: #4ade80;
+            --code-pink: #f472b6;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--darker);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--purple), var(--rose));
+            border-radius: 4px;
+        }
+
+        /* Animated Background Grid */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: floatParticle 15s infinite ease-in-out;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Countdown Screen */
+        #countdown-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #1a1a3e 0%, var(--darker) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        #countdown-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .countdown-ring {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 3px solid transparent;
+            border-top-color: var(--cyan);
+            border-radius: 50%;
+            animation: spinRing 2s linear infinite;
+        }
+
+        .countdown-ring:nth-child(2) {
+            width: 350px;
+            height: 350px;
+            border-top-color: var(--purple);
+            animation-duration: 3s;
+            animation-direction: reverse;
+        }
+
+        .countdown-ring:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            border-top-color: var(--rose);
+            animation-duration: 4s;
+        }
+
+        @keyframes spinRing {
+            to { transform: rotate(360deg); }
+        }
+
+        .countdown-number {
+            font-family: 'Fira Code', monospace;
+            font-size: clamp(120px, 35vw, 280px);
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--cyan), var(--purple), var(--rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 100px rgba(139, 92, 246, 0.5);
+            animation: countPulse 1s ease-in-out;
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes countPulse {
+            0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+            50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+            80% { transform: scale(0.95) rotate(-2deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 0; }
+        }
+
+        .countdown-text {
+            font-family: 'Fira Code', monospace;
+            color: var(--cyan);
+            font-size: 14px;
+            margin-top: 40px;
+            opacity: 0.7;
+            letter-spacing: 3px;
+        }
+
+        .countdown-text::before {
+            content: '> ';
+            color: var(--code-green);
+        }
+
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            animation: glitch-1 0.3s infinite linear alternate-reverse;
+            color: var(--cyan);
+            z-index: -1;
+        }
+
+        .glitch::after {
+            animation: glitch-2 0.3s infinite linear alternate-reverse;
+            color: var(--rose);
+            z-index: -2;
+        }
+
+        @keyframes glitch-1 {
+            0% { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 2px); }
+            100% { clip-path: inset(50% 0 30% 0); transform: translate(3px, -2px); }
+        }
+
+        @keyframes glitch-2 {
+            0% { clip-path: inset(60% 0 20% 0); transform: translate(3px, -2px); }
+            100% { clip-path: inset(30% 0 50% 0); transform: translate(-3px, 2px); }
+        }
+
+        /* Main Content */
+        #main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        #main-content.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(34, 211, 238, 0.1) 0%, transparent 70%);
+            animation: heroBgPulse 10s ease-in-out infinite;
+        }
+
+        @keyframes heroBgPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            top: -20px;
+            animation: confettiFall 5s linear forwards;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(1080deg) scale(0.5); opacity: 0; }
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .code-comment {
+            font-family: 'Fira Code', monospace;
+            color: var(--code-green);
+            font-size: clamp(14px, 3vw, 18px);
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .birthday-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(50px, 14vw, 120px);
+            background: linear-gradient(135deg, var(--gold), var(--rose), var(--purple), var(--cyan));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 5s ease infinite;
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
+            line-height: 1.2;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .birthday-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(28px, 8vw, 70px);
+            font-weight: 700;
+            color: #fff;
+            margin-top: 10px;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+        }
+
+        .birthday-name span {
+            color: var(--cyan);
+        }
+
+        .title-badge {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3));
+            border: 1px solid var(--purple);
+            border-radius: 50px;
+            font-family: 'Fira Code', monospace;
+            font-size: clamp(12px, 2.5vw, 16px);
+            color: var(--gold-light);
+        }
+
+        .title-badge i {
+            margin-right: 8px;
+            color: var(--cyan);
+        }
+
+        .emoji-row {
+            font-size: clamp(40px, 10vw, 80px);
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .emoji-row span {
+            animation: emojiDance 1s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        .emoji-row span:nth-child(1) { animation-delay: 0s; }
+        .emoji-row span:nth-child(2) { animation-delay: 0.2s; }
+        .emoji-row span:nth-child(3) { animation-delay: 0.4s; }
+        .emoji-row span:nth-child(4) { animation-delay: 0.6s; }
+        .emoji-row span:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes emojiDance {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(-10deg); }
+            75% { transform: translateY(-10px) rotate(10deg); }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: scrollBounce 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator span {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .scroll-indicator .mouse {
+            width: 25px;
+            height: 40px;
+            border: 2px solid var(--purple);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .scroll-indicator .mouse::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: var(--cyan);
+            border-radius: 2px;
+            animation: scrollWheel 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scrollWheel {
+            0%, 100% { opacity: 1; top: 8px; }
+            50% { opacity: 0.3; top: 20px; }
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* Photo Section */
+        .photo-section {
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            font-family: 'Fira Code', monospace;
+            color: var(--code-green);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(40px, 10vw, 70px);
+            background: linear-gradient(135deg, var(--gold), var(--rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .photo-frame {
+            width: min(95%, 550px);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            background: linear-gradient(135deg, var(--cyan), var(--purple), var(--rose), var(--gold));
+            background-size: 400% 400%;
+            animation: borderGlow 4s ease infinite;
+            border-radius: 26px;
+            z-index: -1;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .photo-inner {
+            aspect-ratio: 3/4;
+            background: var(--dark);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 25px 80px rgba(139, 92, 246, 0.3);
+        }
+
+        .photo-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-inner:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-placeholder {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .photo-placeholder i {
+            font-size: 60px;
+            background: linear-gradient(135deg, var(--purple), var(--rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .photo-placeholder p {
+            color: var(--gold-light);
+            opacity: 0.6;
+            font-size: 14px;
+        }
+
+        .photo-decoration {
+            position: absolute;
+            font-size: 40px;
+            animation: floatDecor 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+        }
+
+        .photo-decoration:nth-child(1) { top: -25px; left: -25px; animation-delay: 0s; }
+        .photo-decoration:nth-child(2) { top: -25px; right: -25px; animation-delay: 0.5s; }
+        .photo-decoration:nth-child(3) { bottom: -25px; left: -25px; animation-delay: 1s; }
+        .photo-decoration:nth-child(4) { bottom: -25px; right: -25px; animation-delay: 1.5s; }
+
+        @keyframes floatDecor {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(15deg); }
+        }
+
+        /* Messages Section */
+        .messages-section {
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .message-card {
+            max-width: 750px;
+            margin: 50px auto;
+            padding: 50px 40px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.05));
+            border-radius: 24px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            position: relative;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .message-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(139, 92, 246, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .message-card:hover::before {
+            opacity: 1;
+        }
+
+        .message-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .message-card-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: 'Fira Code', monospace;
+            font-size: 60px;
+            font-weight: 700;
+            color: rgba(139, 92, 246, 0.1);
+        }
+
+        .message-icon {
+            font-size: 60px;
+            margin-bottom: 25px;
+            display: block;
+            text-align: center;
+        }
+
+        .message-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(24px, 5vw, 34px);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold), var(--rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .message-text {
+            font-size: clamp(16px, 3vw, 18px);
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+            font-weight: 300;
+        }
+
+        /* Self Card Special */
+        .self-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(236, 72, 153, 0.1));
+            border: 2px solid rgba(255, 215, 0, 0.4);
+        }
+
+        .self-card .message-icon {
+            animation: crownFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes crownFloat {
+            0%, 100% { transform: translateY(0) rotate(-5deg) scale(1); }
+            50% { transform: translateY(-15px) rotate(5deg) scale(1.1); }
+        }
+
+        /* Wisdom Section - Books */
+        .wisdom-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.05), transparent);
+            position: relative;
+        }
+
+        .wisdom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .wisdom-card {
+            background: rgba(10, 10, 26, 0.8);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .wisdom-card.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .wisdom-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--cyan), var(--purple), var(--rose));
+        }
+
+        .wisdom-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .wisdom-book {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--cyan);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .wisdom-book i {
+            color: var(--rose);
+        }
+
+        .wisdom-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(16px, 3vw, 20px);
+            font-style: italic;
+            color: var(--gold-light);
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .wisdom-quote::before {
+            content: '"';
+            font-size: 50px;
+            color: var(--purple);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: serif;
+        }
+
+        .wisdom-reflection {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* WhatsApp Wishes Section */
+        .wishes-section {
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .wishes-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(139, 92, 246, 0.1));
+            border: 2px solid rgba(37, 211, 102, 0.4);
+            border-radius: 24px;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wishes-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 50%);
+            animation: wishesGlow 5s ease-in-out infinite;
+        }
+
+        @keyframes wishesGlow {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10%, 10%); }
+        }
+
+        .wishes-icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+            animation: phoneRing 1s ease-in-out infinite;
+        }
+
+        @keyframes phoneRing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            75% { transform: rotate(15deg); }
+        }
+
+        .wishes-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(24px, 5vw, 36px);
+            font-weight: 700;
+            color: #25d366;
+            margin-bottom: 15px;
+        }
+
+        .wishes-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .wishes-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--cyan);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(10, 10, 26, 0.8);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #25d366;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .send-wish-btn {
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .send-wish-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        .send-wish-btn i {
+            font-size: 22px;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .video-container {
+            width: min(95%, 700px);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            background: linear-gradient(135deg, var(--purple), var(--rose), var(--cyan), var(--gold));
+            background-size: 400% 400%;
+            animation: borderGlow 6s ease infinite;
+            border-radius: 26px;
+            z-index: -1;
+        }
+
+        .video-inner {
+            aspect-ratio: 3/4;
+            background: var(--dark);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 30px 100px rgba(139, 92, 246, 0.4);
+        }
+
+        .video-inner video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        /* Video controls styling */
+        .video-inner video::-webkit-media-controls-panel {
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        }
+
+        .video-placeholder {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .video-placeholder i {
+            font-size: 70px;
+            background: linear-gradient(135deg, var(--rose), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .video-placeholder p {
+            color: var(--gold-light);
+            opacity: 0.6;
+        }
+
+        /* Final Section */
+        .final-section {
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.2) 0%, transparent 60%);
+        }
+
+        .final-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .final-code {
+            font-family: 'Fira Code', monospace;
+            font-size: clamp(12px, 2.5vw, 16px);
+            color: var(--code-green);
+            margin-bottom: 30px;
+            background: rgba(10, 10, 26, 0.8);
+            padding: 20px 30px;
+            border-radius: 12px;
+            display: inline-block;
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .final-message {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(50px, 12vw, 100px);
+            background: linear-gradient(135deg, var(--gold), var(--rose), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+
+        .age-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(120px, 30vw, 180px);
+            height: clamp(120px, 30vw, 180px);
+            background: linear-gradient(135deg, var(--gold), var(--rose));
+            border-radius: 50%;
+            position: relative;
+            animation: badgeSpin 10s linear infinite;
+        }
+
+        .age-badge::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px dashed var(--purple);
+            border-radius: 50%;
+            animation: badgeSpin 15s linear infinite reverse;
+        }
+
+        @keyframes badgeSpin {
+            to { transform: rotate(360deg); }
+        }
+
+        .age-badge span {
+            font-size: clamp(50px, 12vw, 80px);
+            animation: badgeSpin 10s linear infinite reverse;
+        }
+
+        .final-wishes {
+            margin-top: 50px;
+            font-size: clamp(16px, 3vw, 22px);
+            color: var(--gold-light);
+            line-height: 2;
+            font-weight: 300;
+        }
+
+        .final-signature {
+            margin-top: 40px;
+            font-family: 'Fira Code', monospace;
+            color: var(--code-green);
+            font-size: 14px;
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(10, 10, 26, 0.95);
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 1px solid var(--purple);
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(20px);
+        }
+
+        .music-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple), var(--rose));
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+        }
+
+        .music-visualizer {
+            display: flex;
+            align-items: flex-end;
+            height: 30px;
+            gap: 4px;
+        }
+
+        .bar {
+            width: 4px;
+            background: linear-gradient(180deg, var(--cyan), var(--purple));
+            border-radius: 2px;
+            animation: visualize 0.5s ease-in-out infinite alternate;
+        }
+
+        .bar:nth-child(1) { height: 8px; animation-delay: 0s; }
+        .bar:nth-child(2) { height: 16px; animation-delay: 0.1s; }
+        .bar:nth-child(3) { height: 12px; animation-delay: 0.2s; }
+        .bar:nth-child(4) { height: 24px; animation-delay: 0.3s; }
+        .bar:nth-child(5) { height: 10px; animation-delay: 0.4s; }
+        .bar:nth-child(6) { height: 18px; animation-delay: 0.5s; }
+
+        @keyframes visualize {
+            to { height: 28px; }
+        }
+
+        .music-player.paused .bar {
+            animation-play-state: paused;
+            height: 4px !important;
+        }
+
+        .music-label {
+            color: var(--gold-light);
+            font-size: 12px;
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Responsive - Tablets */
+        @media (max-width: 992px) {
+            .wisdom-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .video-container {
+                width: min(95%, 600px);
+            }
+
+            .message-card {
+                max-width: 90%;
+            }
+        }
+
+        /* Responsive - Mobile */
+        @media (max-width: 768px) {
+            .music-player {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                justify-content: center;
+                padding: 12px 20px;
+            }
+
+            .message-card {
+                padding: 35px 25px;
+                margin: 40px 15px;
+            }
+
+            .wisdom-grid {
+                grid-template-columns: 1fr;
+                padding: 0 10px;
+            }
+
+            .wisdom-card {
+                padding: 25px 20px;
+            }
+
+            .wishes-container {
+                padding: 40px 25px;
+                margin: 0 15px;
+            }
+
+            .hero-content .title-badge {
+                display: block;
+                margin: 10px auto;
+                max-width: 90%;
+            }
+
+            .emoji-row {
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            .countdown-ring {
+                width: 200px;
+                height: 200px;
+            }
+
+            .countdown-ring:nth-child(2) {
+                width: 240px;
+                height: 240px;
+            }
+
+            .countdown-ring:nth-child(3) {
+                width: 280px;
+                height: 280px;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+
+            .photo-section,
+            .messages-section,
+            .wisdom-section,
+            .wishes-section,
+            .video-section {
+                padding: 60px 15px;
+            }
+
+            .final-section {
+                padding: 80px 15px;
+            }
+
+            .photo-frame {
+                width: 95%;
+            }
+
+            .photo-decoration {
+                font-size: 20px;
+            }
+
+            .photo-decoration:nth-child(1) { top: -10px; left: -5px; }
+            .photo-decoration:nth-child(2) { top: -10px; right: -5px; }
+            .photo-decoration:nth-child(3) { bottom: -10px; left: -5px; }
+            .photo-decoration:nth-child(4) { bottom: -10px; right: -5px; }
+
+            .message-card-number {
+                font-size: 40px;
+                top: 10px;
+                right: 15px;
+            }
+
+            .message-icon {
+                font-size: 45px;
+            }
+
+            .scroll-indicator {
+                bottom: 20px;
+            }
+
+            .final-code {
+                padding: 15px 20px;
+                font-size: 12px;
+            }
+
+            .age-badge {
+                width: 120px;
+                height: 120px;
+            }
+
+            .age-badge span {
+                font-size: 50px;
+            }
+
+            .video-container {
+                width: 95%;
+            }
+        }
+
+        /* Responsive - Small Mobile */
+        @media (max-width: 480px) {
+            .birthday-title {
+                font-size: 40px;
+            }
+
+            .birthday-name {
+                font-size: 28px;
+            }
+
+            .birthday-name span {
+                display: block;
+            }
+
+            .title-badge {
+                font-size: 11px;
+                padding: 8px 15px;
+            }
+
+            .emoji-row {
+                font-size: 35px;
+                gap: 8px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .section-tag {
+                font-size: 12px;
+            }
+
+            .message-title {
+                font-size: 22px;
+            }
+
+            .message-text {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            .message-card {
+                padding: 30px 20px;
+                margin: 30px 10px;
+            }
+
+            .wisdom-card {
+                padding: 20px 15px;
+            }
+
+            .wisdom-quote {
+                font-size: 15px;
+            }
+
+            .wisdom-quote::before {
+                font-size: 35px;
+                top: -15px;
+                left: -5px;
+            }
+
+            .wisdom-reflection {
+                font-size: 13px;
+            }
+
+            .wishes-container {
+                padding: 30px 20px;
+            }
+
+            .wishes-title {
+                font-size: 24px;
+            }
+
+            .wishes-icon {
+                font-size: 50px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 12px 15px;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            .send-wish-btn {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+
+            .final-message {
+                font-size: 40px;
+            }
+
+            .final-wishes {
+                font-size: 15px;
+                line-height: 1.8;
+            }
+
+            .final-signature {
+                font-size: 12px;
+            }
+
+            .music-player {
+                padding: 10px 15px;
+                gap: 10px;
+            }
+
+            .music-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+
+            .music-visualizer {
+                height: 25px;
+            }
+
+            .bar {
+                width: 3px;
+            }
+
+            .music-label {
+                font-size: 10px;
+            }
+
+            .countdown-ring {
+                width: 150px;
+                height: 150px;
+            }
+
+            .countdown-ring:nth-child(2) {
+                width: 180px;
+                height: 180px;
+            }
+
+            .countdown-ring:nth-child(3) {
+                width: 210px;
+                height: 210px;
+            }
+
+            .countdown-number {
+                font-size: 100px;
+            }
+
+            .countdown-text {
+                font-size: 11px;
+                margin-top: 20px;
+            }
+        }
+
+        /* Ensure touch targets are large enough */
+        @media (pointer: coarse) {
+            .music-btn {
+                min-width: 48px;
+                min-height: 48px;
+            }
+
+            .send-wish-btn {
+                min-height: 48px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                min-height: 48px;
+            }
+        }
+
+        /* Landscape mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                min-height: auto;
+                padding: 40px 20px;
+            }
+
+            .countdown-ring {
+                width: 120px;
+                height: 120px;
+            }
+
+            .countdown-ring:nth-child(2) {
+                width: 150px;
+                height: 150px;
+            }
+
+            .countdown-ring:nth-child(3) {
+                width: 180px;
+                height: 180px;
+            }
+
+            .countdown-number {
+                font-size: 80px;
+            }
+
+            .emoji-row {
+                margin: 15px 0;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+        }
+
+        /* Floating Action Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: floatShape 20s ease-in-out infinite;
+        }
+
+        @keyframes floatShape {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(50px, -50px) rotate(90deg); }
+            50% { transform: translate(0, -100px) rotate(180deg); }
+            75% { transform: translate(-50px, -50px) rotate(270deg); }
+        }
+
+        /* Typewriter effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid var(--cyan);
+            white-space: nowrap;
+            animation: typing 3s steps(40) 1s forwards, blink 0.75s step-end infinite;
+            width: 0;
+        }
+
+        @keyframes typing {
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="particles" id="particles"></div>
+    <div class="floating-elements" id="floating-shapes"></div>
+
+    <!-- Countdown Screen -->
+    <div id="countdown-screen">
+        <div class="countdown-ring"></div>
+        <div class="countdown-ring"></div>
+        <div class="countdown-ring"></div>
+        <div class="countdown-number" id="countdown-number"></div>
+        <p class="countdown-text">initializing_birthday_sequence...</p>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="confetti-container" id="confetti"></div>
+            <div class="hero-content">
+                <p class="code-comment">// A special day has begun...</p>
+                <h1 class="birthday-title">Happy Happy Birthday</h1>
+                <h2 class="birthday-name">Faith <span>Njoroge</span></h2>
+                <div class="title-badge">
+                    <i class="fas fa-calendar-star"></i>
+                    15th December 2025
+                </div>
+                <div class="title-badge" style="margin-left: 10px;">
+                    <i class="fas fa-crown"></i>
+                    Dreamer | Go-Getter | Unstoppable Queen
+                </div>
+                <div class="emoji-row">
+                    <span>🎂</span>
+                    <span>🎉</span>
+                    <span>👑</span>
+                    <span>🚀</span>
+                    <span>✨</span>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="mouse"></div>
+            </div>
+        </section>
+
+        <!-- Photo Section -->
+        <section class="photo-section">
+            <div class="section-header">
+                <p class="section-tag">&lt;TheQueenHerself /&gt;</p>
+                <h2 class="section-title">✨ The Birthday Queen ✨</h2>
+            </div>
+            <div class="photo-frame">
+                <span class="photo-decoration">🌟</span>
+                <span class="photo-decoration">💫</span>
+                <span class="photo-decoration">✨</span>
+                <span class="photo-decoration">⭐</span>
+                <div class="photo-inner" id="photo-area">
+                    <img src="me.jpg" alt="Faith Njoroge - Birthday Queen">
+                </div>
+            </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section class="messages-section">
+            <div class="section-header">
+                <p class="section-tag">// gratitude.forEach(express)</p>
+                <h2 class="section-title">💝 Heartfelt Thanks 💝</h2>
+            </div>
+
+            <!-- Thanks to God -->
+            <div class="message-card" data-reveal>
+                <span class="message-card-number">01</span>
+                <span class="message-icon">🙏✨</span>
+                <h3 class="message-title">Thanks to God</h3>
+                <p class="message-text">
+                    First and foremost, all glory to the Almighty God—the Master Architect
+                    of the universe and the Author of my story. Thank You, Lord,
+                    for another year of grace, for calming my fears, and for filling
+                    my life with countless blessings. You've been my constant in a world of change,
+                    my endless source of love and mercy. Every heartbeat is a testament to
+                    Your faithfulness. I am forever grateful for Your divine guidance. 🕊️
+                </p>
+            </div>
+
+            <!-- Thanks to Parents -->
+            <div class="message-card" data-reveal>
+                <span class="message-card-number">02</span>
+                <span class="message-icon">👨‍👩‍👧💕</span>
+                <h3 class="message-title">Thanks to My Amazing Parents</h3>
+                <p class="message-text">
+                    To my incredible parents Mr & Mrs Njoroge, my original support system, my first champions,
+                    and my forever cheerleaders. You built the foundation upon which I now
+                    stand. Every sacrifice you made, every prayer you whispered, every lesson
+                    you taught—they're all woven into who I am today. You believed in my
+                    dreams even when they were just seeds. Your love is the most beautiful
+                    gift in my life—unconditional, unwavering, and infinite. I love you
+                    more than words can express. 💝
+                </p>
+            </div>
+
+            <!-- Thanks to Friends -->
+            <div class="message-card" data-reveal>
+                <span class="message-card-number">03</span>
+                <span class="message-icon">👯‍♀️🎉</span>
+                <h3 class="message-title">Thanks to My Incredible Friends</h3>
+                <p class="message-text">
+                    To my amazing tribe—my chosen family, my adventure partners, and my
+                    partners in everything fun and crazy! Thank you for the late-night laughs,
+                    the spontaneous adventures, and for always being there when life
+                    threw curveballs. You've celebrated my successes, picked me up
+                    from hard times, and made ordinary days extraordinary. Life's journey
+                    is so much sweeter with you all by my side. Here's to more memories,
+                    more inside jokes, and more years of beautiful friendship! 🥂
+                </p>
+            </div>
+
+            <!-- Thanks to Self -->
+            <div class="message-card self-card" data-reveal>
+                <span class="message-card-number">04</span>
+                <span class="message-icon">👑</span>
+                <h3 class="message-title">A Letter to Myself — Faith Njoroge</h3>
+                <p class="message-text">
+                    Dear Faith,<br><br>
+                    Look at you—still rising, still glowing, still growing!
+                    I am so incredibly proud of the woman you're becoming. You've faced
+                    storms that could have broken you, but you found your strength.
+                    You've learned to love yourself on the hard days, to keep pushing
+                    when things got tough, and to find joy in every small victory.<br><br>
+                    You are resilient. You are brilliant. You are a force of nature wrapped
+                    in determination and grace. Every day, you're not just living—
+                    you're writing your own incredible story.<br><br>
+                    This next chapter of your life? It's going to be absolutely
+                    LEGENDARY. Never stop dreaming big, laughing loud, and loving deeply.<br><br>
+                    Happy Birthday, Queen! 👑💫<br>
+                    <em>— With all my love, You</em>
+                </p>
+            </div>
+        </section>
+
+        <!-- Wisdom Section -->
+        <section class="wisdom-section">
+            <div class="section-header">
+                <p class="section-tag">const lessonsLearned = [...]</p>
+                <h2 class="section-title">📚 This Year's Wisdom 📚</h2>
+            </div>
+            <div class="wisdom-grid">
+                <div class="wisdom-card" data-reveal>
+                    <div class="wisdom-book"><i class="fas fa-book"></i> Atomic Habits</div>
+                    <p class="wisdom-quote">Small daily improvements compound into remarkable results. Every 1% better today builds the extraordinary you of tomorrow.</p>
+                    <p class="wisdom-reflection">💡 My reflection: Success isn't about giant leaps—it's about tiny, consistent steps.</p>
+                </div>
+
+                <div class="wisdom-card" data-reveal>
+                    <div class="wisdom-book"><i class="fas fa-book"></i> Rich Dad Poor Dad</div>
+                    <p class="wisdom-quote">Financial education transforms how you see the world. Assets put money in your pocket; liabilities take it out.</p>
+                    <p class="wisdom-reflection">💡 My reflection: Work to learn, not just to earn. Make money work for you.</p>
+                </div>
+
+                <div class="wisdom-card" data-reveal>
+                    <div class="wisdom-book"><i class="fas fa-book"></i> The Richest Man in Babylon</div>
+                    <p class="wisdom-quote">Pay yourself first. A part of all you earn is yours to keep—wealth begins with saving.</p>
+                    <p class="wisdom-reflection">💡 My reflection: Building wealth starts with discipline and wisdom, not income level.</p>
+                </div>
+
+                <div class="wisdom-card" data-reveal>
+                    <div class="wisdom-book"><i class="fas fa-book"></i> Do It Today</div>
+                    <p class="wisdom-quote">Procrastination steals your future. The best time to act is always now—tomorrow is a thief.</p>
+                    <p class="wisdom-reflection">💡 My reflection: Done is better than perfect. Start now, improve later.</p>
+                </div>
+
+                <div class="wisdom-card" data-reveal>
+                    <div class="wisdom-book"><i class="fas fa-book"></i> The Diary of a CEO</div>
+                    <p class="wisdom-quote">Your story is your superpower. Embrace vulnerability, lead with authenticity, and never stop learning.</p>
+                    <p class="wisdom-reflection">💡 My reflection: Real leadership means being human first, boss second.</p>
+                </div>
+
+                <div class="wisdom-card" data-reveal>
+                    <div class="wisdom-book"><i class="fas fa-book"></i> The Art of Letting Go</div>
+                    <p class="wisdom-quote">Release what no longer serves you. Peace comes when you stop carrying yesterday's burdens into today.</p>
+                    <p class="wisdom-reflection">💡 My reflection: Letting go isn't giving up—it's making room for better.</p>
+                </div>
+
+                <div class="wisdom-card" data-reveal>
+                    <div class="wisdom-book"><i class="fas fa-book"></i> The Let Them Theory</div>
+                    <p class="wisdom-quote">Let them think what they want. Your peace is more valuable than their approval.</p>
+                    <p class="wisdom-reflection">💡 My reflection: Stop managing others' opinions. Just be unapologetically you.</p>
+                </div>
+
+                <div class="wisdom-card" data-reveal>
+                    <div class="wisdom-book"><i class="fas fa-book"></i> Things I Never Said to Myself</div>
+                    <p class="wisdom-quote">The words you speak to yourself shape your reality. Be gentle—you're doing better than you think.</p>
+                    <p class="wisdom-reflection">💡 My reflection: Self-compassion is not weakness. It's the foundation of strength.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WhatsApp Wishes Section -->
+        <section class="wishes-section">
+            <div class="section-header">
+                <p class="section-tag">sendWishes(toFaith)</p>
+                <h2 class="section-title">💌 Send Your Wishes 💌</h2>
+            </div>
+            <div class="wishes-container">
+                <div class="wishes-icon">📱💚</div>
+                <h3 class="wishes-title">Send Me Birthday Love!</h3>
+                <p class="wishes-subtitle">Your message will fly straight to my WhatsApp ✨</p>
+                <form class="wishes-form" id="wishes-form">
+                    <div class="form-group">
+                        <label for="sender-name">Your Name</label>
+                        <input type="text" id="sender-name" placeholder="What should I call you?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="wish-message">Your Birthday Wish</label>
+                        <textarea id="wish-message" placeholder="Write something beautiful for me... 💕" required></textarea>
+                    </div>
+                    <button type="submit" class="send-wish-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        Send via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="section-header">
+                <p class="section-tag">&lt;Memories year="2025" /&gt;</p>
+                <h2 class="section-title">🎬 This Year's Memories 🎬</h2>
+            </div>
+            <div class="video-container">
+                <div class="video-inner" id="video-area">
+                    <video controls playsinline poster="me.jpg">
+                        <source src="me.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Section -->
+        <section class="final-section">
+            <div class="final-bg"></div>
+            <div class="final-content">
+                <div class="final-code">
+                    console.log("🎉 Happy Birthday, Faith! 🎉");
+                </div>
+                <h2 class="final-message">Cheers to a New Chapter!</h2>
+                <div class="age-badge">
+                    <span>🌟</span>
+                </div>
+                <p class="final-wishes">
+                    May this year bring you<br>
+                    <strong>endless joy</strong> • <strong>abundant blessings</strong> • <strong>beautiful adventures</strong><br>
+                    <strong>true love</strong> • <strong>career success</strong> • <strong>all your heart desires</strong> ✨<br><br>
+                    May your dreams take flight and your heart stay light,<br>
+                    May your days be bright and your future even brighter! ☀️<br><br>
+                    <strong style="font-size: 1.3em; color: var(--gold);">Happy Birthday, Faith!</strong> 🎂🎈🎁
+                </p>
+                <p class="final-signature">
+                    // Made with 💜 for the most amazing birthday girl<br>
+                    &copy; Faith Njoroge | Born to Shine ✨
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player paused" id="music-player" style="display: none;">
+        <button class="music-btn" id="music-btn" aria-label="Toggle music">
+            <i class="fas fa-play"></i>
+        </button>
+        <div class="music-visualizer">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <span class="music-label">♪ Birthday Vibes</span>
+        <audio id="bg-music" loop>
+            <source src="me.aac" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        // ============ CONFIGURATION ============
+        // Replace with your WhatsApp number (with country code, no + or spaces)
+        const WHATSAPP_NUMBER = '254724986797';
+
+        // ============ PARTICLES ============
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const colors = ['#ffd700', '#ff6b9d', '#8b5cf6', '#22d3ee', '#4ade80'];
+
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 8 + 4 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = Math.random() * 10 + 10 + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // ============ FLOATING SHAPES ============
+        function createFloatingShapes() {
+            const container = document.getElementById('floating-shapes');
+            const shapes = ['◆', '○', '△', '□', '⬡'];
+            const colors = ['#8b5cf6', '#22d3ee', '#ff6b9d', '#ffd700'];
+
+            for (let i = 0; i < 15; i++) {
+                const shape = document.createElement('div');
+                shape.className = 'floating-shape';
+                shape.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                shape.style.left = Math.random() * 100 + '%';
+                shape.style.top = Math.random() * 100 + '%';
+                shape.style.fontSize = Math.random() * 40 + 20 + 'px';
+                shape.style.color = colors[Math.floor(Math.random() * colors.length)];
+                shape.style.animationDelay = Math.random() * 10 + 's';
+                shape.style.animationDuration = Math.random() * 20 + 15 + 's';
+                container.appendChild(shape);
+            }
+        }
+
+        // ============ COUNTDOWN ============
+        function startCountdown() {
+            const countdownScreen = document.getElementById('countdown-screen');
+            const countdownNumber = document.getElementById('countdown-number');
+            const mainContent = document.getElementById('main-content');
+            let count = 5;
+
+            function showNumber() {
+                if (count > 0) {
+                    countdownNumber.textContent = count;
+                    countdownNumber.style.animation = 'none';
+                    void countdownNumber.offsetWidth;
+                    countdownNumber.style.animation = 'countPulse 1s ease-in-out';
+                    count--;
+                    setTimeout(showNumber, 1000);
+                } else {
+                    // Show "GO!" or launch text
+                    countdownNumber.textContent = '🚀';
+                    countdownNumber.style.animation = 'none';
+                    void countdownNumber.offsetWidth;
+                    countdownNumber.style.animation = 'countPulse 1s ease-in-out';
+
+                    setTimeout(() => {
+                        countdownScreen.classList.add('hidden');
+                        mainContent.classList.add('visible');
+                        createConfetti();
+                        document.getElementById('music-player').style.display = 'flex';
+
+                        // Auto-play music
+                        const bgMusic = document.getElementById('bg-music');
+                        const musicBtn = document.getElementById('music-btn');
+                        const musicPlayer = document.getElementById('music-player');
+
+                        bgMusic.play().then(() => {
+                            musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                            musicPlayer.classList.remove('paused');
+                        }).catch(() => {
+                            // Autoplay blocked - user needs to interact
+                            console.log('Click play to start music');
+                        });
+                    }, 800);
+                }
+            }
+
+            showNumber();
+        }
+
+        // ============ CONFETTI ============
+        function createConfetti() {
+            const container = document.getElementById('confetti');
+            const colors = ['#ffd700', '#ff6b9d', '#8b5cf6', '#22d3ee', '#4ade80', '#f472b6', '#a78bfa'];
+            const shapes = ['●', '■', '▲', '★', '♦', '♥', '✦'];
+
+            for (let i = 0; i < 200; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.fontSize = Math.random() * 20 + 10 + 'px';
+                confetti.style.animationDuration = Math.random() * 3 + 3 + 's';
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(confetti);
+            }
+
+            // Remove confetti after animation
+            setTimeout(() => {
+                container.innerHTML = '';
+            }, 8000);
+        }
+
+        // ============ SCROLL REVEAL ============
+        function setupScrollReveal() {
+            const elements = document.querySelectorAll('[data-reveal]');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+            elements.forEach(el => observer.observe(el));
+        }
+
+        // ============ MUSIC PLAYER ============
+        function setupMusicPlayer() {
+            const musicBtn = document.getElementById('music-btn');
+            const musicPlayer = document.getElementById('music-player');
+            const bgMusic = document.getElementById('bg-music');
+
+            musicBtn.addEventListener('click', () => {
+                if (bgMusic.paused) {
+                    bgMusic.play().then(() => {
+                        musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                        musicPlayer.classList.remove('paused');
+                    }).catch(err => {
+                        console.log('Audio playback error:', err);
+                    });
+                } else {
+                    bgMusic.pause();
+                    musicBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    musicPlayer.classList.add('paused');
+                }
+            });
+        }
+
+        // ============ WHATSAPP WISHES ============
+        function setupWhatsAppForm() {
+            const form = document.getElementById('wishes-form');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const name = document.getElementById('sender-name').value.trim();
+                const message = document.getElementById('wish-message').value.trim();
+
+                if (!name || !message) return;
+
+                const fullMessage = `🎂 *Birthday Wish for Faith* 🎂\n\n` +
+                    `👤 From: ${name}\n\n` +
+                    `💌 Message:\n${message}\n\n` +
+                    `✨ Sent with love from your birthday website! ✨`;
+
+                const encodedMessage = encodeURIComponent(fullMessage);
+                const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+                window.open(whatsappURL, '_blank');
+
+                // Clear form
+                form.reset();
+            });
+        }
+
+        // ============ INITIALIZE ============
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            createFloatingShapes();
+            setupScrollReveal();
+            setupMusicPlayer();
+            setupWhatsAppForm();
+
+            // Start countdown after brief delay
+            setTimeout(startCountdown, 500);
+        });
+
+        // Dark mode (already dark by default)
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            document.documentElement.classList.add(event.matches ? 'dark' : '');
+        });
+    </script>
+</body>
+</html>
+
