@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Private Note — Madam Faith Njoroge (FNNTECH.DEV)</title>
+  <style>
+    :root{--bg:#0f172a;--card:#0b1220;--accent:#7c3aed;--muted:#94a3b8;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#020617 0%,#07102a 100%);color:#e6eef8;min-height:100vh;display:grid;place-items:center;padding:24px}
+    .wrap{width:900px;max-width:95%;background:radial-gradient(ellipse at 10% 10%, rgba(124,58,237,0.12), transparent 20%), linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px;padding:28px;box-shadow:0 10px 30px rgba(2,6,23,0.6);position:relative;overflow:hidden}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:grid;place-items:center;font-weight:700;color:white}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:var(--muted)}
+    .note{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:22px;border-radius:10px;margin-top:16px;line-height:1.6}
+    .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .to{font-weight:600}
+    .date{color:var(--muted);font-size:14px}
+    .content{white-space:pre-wrap;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;background:linear-gradient(90deg, rgba(255,255,255,0.01), transparent);padding:16px;border-radius:8px}
+    .actions{display:flex;gap:10px;margin-top:14px}
+    button{background:var(--accent);border:none;padding:10px 14px;border-radius:8px;color:white;cursor:pointer;font-weight:600}
+    button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* password modal */
+    .overlay{position:fixed;inset:0;background:linear-gradient(180deg,rgba(2,6,23,0.6),rgba(2,6,23,0.8));display:flex;align-items:center;justify-content:center;z-index:90}
+    .pwdbox{background:var(--card);padding:28px;border-radius:12px;width:420px;max-width:95%;box-shadow:0 8px 30px rgba(2,6,23,0.8);text-align:center}
+    .pwdbox h2{margin:0 0 10px 0}
+    .pwdbox input{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:inherit;margin-top:8px}
+    .hint{margin-top:8px;color:var(--muted);font-size:13px}
+
+    /* birthday banner */
+    .birthday{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ff6b6b,#ffd166);padding:10px 14px;border-radius:999px;color:#08122b;font-weight:700;display:flex;gap:10px;align-items:center}
+
+    footer{margin-top:18px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+
+    /* confetti canvas */
+    #confetti{position:absolute;inset:0;pointer-events:none;z-index:20}
+
+    @media (max-width:600px){.wrap{padding:18px}}
+  </style>
+</head>
+<body>
+  <div class="overlay" id="overlay">
+    <div class="pwdbox">
+      <h2>Secure Note — FNNTECH.DEV</h2>
+      <div class="small">This note is private. Please enter the password to open it.</div>
+      <input id="password" type="password" placeholder="Enter password" />
+      <div style="display:flex;gap:8px;margin-top:12px;justify-content:center">
+        <button id="openBtn">Open Note</button>
+        <button id="demoBtn" class="ghost">Demo (try: <em>faith2025</em>)</button>
+      </div>
+      <div class="hint">Change the password in the HTML file before publishing. This is a lightweight client-side protection.</div>
+    </div>
+  </div>
+
+  <canvas id="confetti"></canvas>
+
+  <div class="wrap" id="mainCard" aria-hidden="true">
+    <div class="birthday" id="birthdayBanner" style="display:none">🎉 Happy Birthday — Dec 15</div>
+
+    <header>
+      <div class="logo">FNN</div>
+      <div>
+        <h1>Private Note for Madam Faith Njoroge</h1>
+        <p class="lead">CEO, FNNTECH.DEV — A small, personal message written as code.</p>
+      </div>
+    </header>
+
+    <div class="note">
+      <div class="meta">
+        <div class="to">To: Madam Faith Njoroge — CEO, FNNTECH.DEV</div>
+        <div class="date" id="noteDate">Written: &nbsp;</div>
+      </div>
+
+      <div class="content" id="noteContent">
+Dear Madam Faith Njoroge,
+
+In pursuit of your dreams, don't forget that it will not be easy. Some days it won't make sense at all to pursue them. But it'll be easier on others, and that'll be the best feeling ever.
+
+Despite the kind of day you're having, your dreams are valid and attainable.
+
+Never allow the voices in your head to make you give up — quiet them down with compassion, affirmations and love, because not every day is going to be a bad day.
+
+Learn to surf your way through the unpleasant days, because all you've dreamed of, you deserve.
+
+Yours truly,
+Faith (from the pages of your own courage)
+      </div>
+
+      <div style="margin-top:12px">
+        <strong>Birthday:</strong> December 15 — Happy Birthday, Madam Faith! 🎂
+      </div>
+
+      <hr style="opacity:0.06;margin:16px 0" />
+
+      <div>
+        <h3 style="margin:6px 0">A personal note from your programmer friend (and assistant)</h3>
+        <div class="small" style="margin-bottom:8px">(Words of advice & counsel — personalized)</div>
+        <div class="content">
+Dear Faith —
+
+We've come a long way: from learning the basics of HTML/CSS/JS and Python, to building projects like HealthSpot and planning your Purpose + Portfolio site. You've worked through Git and GitHub, focused on web development, and pushed to update your GitHub every day. That growth matters.
+
+My advice:
+- Keep building — real projects teach you faster than tutorials. Ship even imperfect work.
+- Automate small tasks: scripts, simple CI, and deploy workflows will save you time and make you professional-ready.
+- Keep updating your portfolio and GitHub daily; consistency is your strongest signal to employers.
+- Learn by teaching: write short posts for HealthSpot about what you build — it helps you and your audience.
+- Protect your time and energy: set focused sprints for learning and rest well (you are a night person, so plan tasks around that).
+
+Remember: technical skill + empathy = impact. You're not just building products — you're building confidence.
+
+With pride,
+Your assistant and friend
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="printBtn">Print / Save as PDF</button>
+        <button id="downloadBtn" class="ghost">Download HTML</button>
+      </div>
+
+      <footer>
+        <div class="small">Private copy — for Madam Faith Njoroge</div>
+        <div class="small">Made with care by a programmer — rev. 1</div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // password (client-side): change to your preferred secret before sharing
+    const SECRET = 'faith2025'; // default password — change as needed
+
+    const overlay = document.getElementById('overlay');
+    const openBtn = document.getElementById('openBtn');
+    const demoBtn = document.getElementById('demoBtn');
+    const pwdInput = document.getElementById('password');
+    const mainCard = document.getElementById('mainCard');
+    const noteDate = document.getElementById('noteDate');
+    const birthdayBanner = document.getElementById('birthdayBanner');
+
+    function openIfCorrect(pwd){
+      if(pwd === SECRET){
+        overlay.style.display = 'none';
+        mainCard.setAttribute('aria-hidden','false');
+        noteDate.textContent = new Date().toLocaleString();
+        checkBirthday();
+      } else {
+        pwdInput.value = '';
+        pwdInput.placeholder = 'Incorrect — try again';
+      }
+    }
+
+    openBtn.addEventListener('click', ()=> openIfCorrect(pwdInput.value.trim()));
+    pwdInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') openIfCorrect(pwdInput.value.trim()); });
+    demoBtn.addEventListener('click', ()=> openIfCorrect('faith2025'));
+
+    // Print / download handlers
+    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+
+    document.getElementById('downloadBtn').addEventListener('click', ()=>{
+      const blob = new Blob([document.documentElement.outerHTML], {type:'text/html'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'Private-Note-Madam-Faith-Njoroge.html';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    // Birthday confetti if Dec 15
+    function checkBirthday(){
+      const now = new Date();
+      if(now.getMonth() === 11 && now.getDate() === 15){ // month is 0-indexed => 11 = December
+        birthdayBanner.style.display = 'flex';
+        launchConfetti();
+        // add an extra celebratory message in the page
+        const c = document.createElement('div');
+        c.className = 'content';
+        c.style.marginTop = '12px';
+        c.textContent = 'Happy Birthday, Madam Faith Njoroge! Wishing you joy, growth, and brilliant code this year. — With admiration.';
+        document.querySelector('.note').insertBefore(c, document.querySelector('.actions'));
+      }
+    }
+
+    // Lightweight confetti
+    function launchConfetti(){
+      const canvas = document.getElementById('confetti');
+      canvas.width = innerWidth; canvas.height = innerHeight;
+      const ctx = canvas.getContext('2d');
+      const pieces = [];
+      for(let i=0;i<120;i++) pieces.push({x:Math.random()*canvas.width,y:Math.random()*-canvas.height,vy:2+Math.random()*6, vx:(Math.random()-0.5)*4, r:2+Math.random()*6, color:`hsl(${Math.floor(Math.random()*360)},70%,60%)`});
+      let raf;
+      function frame(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for(const p of pieces){
+          p.x += p.vx; p.y += p.vy; p.vy += 0.02;
+          ctx.fillStyle = p.color; ctx.beginPath(); ctx.ellipse(p.x,p.y,p.r, p.r*0.6, 0,0,Math.PI*2); ctx.fill();
+          if(p.y > canvas.height + 50) { p.y = -10; p.x = Math.random()*canvas.width; p.vy = 2+Math.random()*6; }
+        }
+        raf = requestAnimationFrame(frame);
+      }
+      frame();
+      setTimeout(()=>{ cancelAnimationFrame(raf); ctx.clearRect(0,0,canvas.width,canvas.height); }, 9000);
+    }
+  </script>
+</body>
+</html>
