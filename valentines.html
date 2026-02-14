@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's - JF Print Hub</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ff4e7a, #ff9a9e);
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        color: white;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        backdrop-filter: blur(10px);
+        max-width: 500px;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .footer {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>❤️ Happy Valentine's Day ❤️</h1>
+    <p id="message"></p>
+    <div class="footer">— JF Print Hub</div>
+</div>
+
+<script>
+    const message = `
+    To all our amazing customers,
+    we truly appreciate your support and trust in us.
+    This Valentine's season, we celebrate YOU!
+    Thank you for being part of the JF Print Hub family.
+    Wishing you love, happiness, and continued success.
+    `;
+
+    document.getElementById("message").innerText = message;
+</script>
+
+</body>
+</html>
