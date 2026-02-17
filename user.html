@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Info</title>
+</head>
+<body>
+
+<button onclick="getInfo()">Enter Your Details</button>
+
+<p id="output"></p>
+
+<script>
+function getInfo() {
+    let name = prompt("Enter your name:");
+    let age = prompt("Enter your age:");
+    let id = prompt("Enter your ID number:");
+
+    let message = "My name is " + name + 
+                  ". I am " + age + 
+                  " years old, and my ID number is " + id + ".";
+
+    document.getElementById("output").innerText = message;
+}
+</script>
+
+</body>
+</html>
