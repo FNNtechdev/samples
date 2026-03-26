@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Survey Form</title>
+</head>
+<body>
+
+  <h1 id="title">Survey Form</h1>
+  <p id="description">Please fill out this survey to help us improve.</p>
+
+  <form id="survey-form">
+
+    <!-- Name -->
+    <label id="name-label" for="name">Name:</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Enter your name"
+      required
+    >
+
+    <!-- Email -->
+    <label id="email-label" for="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Enter your email"
+      required
+    >
+
+    <!-- Number -->
+    <label id="number-label" for="number">Age:</label>
+    <input
+      type="number"
+      id="number"
+      name="number"
+      placeholder="Enter your age"
+      min="10"
+      max="100"
+    >
+
+    <!-- Dropdown -->
+    <label for="dropdown">Select an option:</label>
+    <select id="dropdown">
+      <option value="student">Student</option>
+      <option value="professional">Professional</option>
+    </select>
+
+    <!-- Radio buttons -->
+    <p>Choose one:</p>
+    <label>
+      <input type="radio" name="choice" value="option1"> Option 1
+    </label>
+    <label>
+      <input type="radio" name="choice" value="option2"> Option 2
+    </label>
+
+    <!-- Checkboxes -->
+    <p>Select your interests:</p>
+    <label>
+      <input type="checkbox" value="coding"> Coding
+    </label>
+    <label>
+      <input type="checkbox" value="travel"> Travel
+    </label>
+
+    <!-- Textarea -->
+    <p>Additional comments:</p>
+    <textarea placeholder="Enter your comments here"></textarea>
+
+    <!-- Submit -->
+    <button id="submit" type="submit">Submit</button>
+
+  </form>
+
+</body>
+</html>
