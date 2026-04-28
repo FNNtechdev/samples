@@ -1,0 +1,15 @@
+students = [
+    {"name": "Faith", "marks": 80},
+    {"name": "John", "marks": 45},
+    {"name": "Mary", "marks": 60},
+    {"name": "Brian", "marks": 30}
+]
+
+for student in students:
+    name = student["name"]
+    marks = student["marks"]
+
+    if marks >= 50:
+        print(name, "Pass")
+    else:
+        print(name, "Fail")
